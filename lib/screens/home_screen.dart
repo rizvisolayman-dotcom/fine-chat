@@ -5,45 +5,38 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            "Fine Chat",
-            style: TextStyle(fontWeight: FontWeight.bold),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Fine Chat"),
+        backgroundColor: Colors.green,
+        actions: const [
+          Icon(Icons.search),
+          SizedBox(width: 15),
+          Icon(Icons.more_vert),
+          SizedBox(width: 10),
+        ],
+      ),
+      body: ListView(
+        children: const [
+          ListTile(
+            leading: CircleAvatar(child: Icon(Icons.person)),
+            title: Text("Rizvi"),
+            subtitle: Text("Hi, kemon acho?"),
+            trailing: Text("10:30 AM"),
           ),
-          backgroundColor: Colors.green,
-          actions: const [
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: Icon(Icons.search),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: Icon(Icons.more_vert),
-            ),
-          ],
-          bottom: const TabBar(
-            tabs: [
-              Tab(text: "Chats"),
-              Tab(text: "Status"),
-              Tab(text: "Calls"),
-            ],
+          Divider(),
+          ListTile(
+            leading: CircleAvatar(child: Icon(Icons.person)),
+            title: Text("Solayman"),
+            subtitle: Text("Welcome to Fine Chat"),
+            trailing: Text("09:45 AM"),
           ),
-        ),
-        body: const TabBarView(
-          children: [
-            Center(child: Text("Chats")),
-            Center(child: Text("Status")),
-            Center(child: Text("Calls")),
-          ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.green,
-          onPressed: () {},
-          child: const Icon(Icons.chat),
-        ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green,
+        onPressed: () {},
+        child: const Icon(Icons.chat),
       ),
     );
   }
